@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video Slider page!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="video/tokyo.mp4" autoplay muted loop class="active"></video>
+            <video src="video/paris.mp4" autoplay muted loop></video>
+            <video src="video/egypt.mp4" autoplay muted loop></video>
+            <video src="video/maldives.mp4" autoplay muted loop></video>
+        </div>
+        <div class="container">
+            <header id="navbar">
+                <a href="#" class="logo">World</a>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Destination</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <div class="bannerText" id="slideShowText">
+                    <div class="active">
+                        <h2>Tokyo</h2>
+                        <p>Tokyo – is the de facto capital and most populous prefecture of Japan.
+                            Located at the head of Tokyo Bay, the prefecture forms part of the Kantō
+                            region on the central Pacific coast of Japan's main island of Honshu.
+                            Tokyo is the political and economic center of the country,
+                            as well as the seat of the Emperor of Japan and the national government.</p>
+                    </div>
+                    <div>
+                        <h2>Paris</h2>
+                        <p>Paris – is the capital and most populous city of France, with an estimated population of 2,175,601 residents as of 2018, in an area of more than 105 square kilometres (41 square miles). Since the 17th century, Paris has been one of Europe's major centres of finance, diplomacy, commerce, fashion, gastronomy, science, and arts.</p>
+                    </div>
+                    <div>
+                        <h2>Egypt</h2>
+                        <p>Egypt – officially the Arab Republic of Egypt, is a transcontinental country spanning the northeast corner of Africa and southwest corner of Asia by a land bridge formed by the Sinai Peninsula. Egypt is a Mediterranean country bordered by the Gaza Strip (Palestine) and Israel to the northeast, the Gulf of Aqaba and the Red Sea to the east, Sudan to the south, and Libya to the west. </p>
+                    </div>
+                    <div>
+                        <h2>Maldives</h2>
+                        <p>Maldives – officially the Republic of Maldives, is a small archipelagic state in Indian Subcontinent situated in the Indian Ocean. It lies southwest of Sri Lanka and India, about 700 kilometres (430 mi) from the Asian continent's mainland. The chain of 26 atolls stretches from Ihavandhippolhu Atoll in the north to Addu Atoll in the south (across the Equator).</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="sci">
+                <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
+                <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
+            </ul>
+
+            <ul class="controls">
+                <li onclick="prevSlide();prevSlideText()"><img src="img/left.png" alt=""></li>
+                <li onclick="nextSlide();nextSlideText();"><img src="img/right.png" alt=""></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        const slideShow = document.getElementById('slideShow');
+        const slides = slideShow.getElementsByTagName('video');
+        var index = 0;
+
+        function nextSlide(){
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide(){
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        const slideShowText = document.getElementById('slideShowText');
+        const slidesText = slideShowText.getElementsByTagName('div');
+        var i = 0;
+
+        function nextSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function prevSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
